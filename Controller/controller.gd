@@ -58,8 +58,8 @@ func _physics_process(delta: float) -> void:
 	#head bob
 	t_bob += delta * velocity.length() * float(is_on_floor())
 	camera.transform.origin = _headbob(t_bob)
-	camera.rotation.y = sin(delta * BOB_FREQ ) * BOB_AMP / 2
-	camera.rotation.z = sin(delta * BOB_FREQ ) * BOB_AMP / 2
+	camera.rotation.y = sin(t_bob * BOB_FREQ ) * BOB_AMP / 2
+	camera.rotation.z = sin(t_bob * BOB_FREQ ) * BOB_AMP / 2
 	move_and_slide()
 
 func _headbob(time) -> Vector3:
